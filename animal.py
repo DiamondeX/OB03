@@ -9,6 +9,14 @@ class Animal:
     def eat(self):
         print(f"{self.name} is eating.")
 
+    # специальный метод для сохранения объекта
+    def __getstate__(self):
+        return self.__dict__
+
+    # специальный метод для восстановления объекта
+    def __setstate__(self, state):
+        self.__dict__ = state
+
 class Bird(Animal):
     def __init__(self, name, age, wingspan):
         super().__init__(name, age)
